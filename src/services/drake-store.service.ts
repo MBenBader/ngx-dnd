@@ -73,7 +73,7 @@ export class DrakeStoreService {
       return true;
     };
 
-    return {accepts, copy, moves, revertOnSpill: true, direction: 'vertical'};
+    return { accepts, copy, moves, revertOnSpill: true, direction: 'vertical' };
   }
 
   registerEvents(): void {
@@ -96,24 +96,7 @@ export class DrakeStoreService {
           type: 'drag',
           el,
           source,
-          value: {
-            "section": [
-              {
-                "container": [
-                  {
-                    "row": [
-                      {
-                        "column": [
-                         draggedItem
-                        ]
-                      }
-                    ]
-                  }
-      
-                ]
-              }
-            ]
-          }
+          value: draggedItem
         });
       }
 
@@ -126,36 +109,36 @@ export class DrakeStoreService {
           el,
           source,
           sourceComponent,
-          value: {
-            "section": [
-              {
-                "container": [
-                  {
-                    "row": [
-                      {
-                        "column": [
-                          draggedItem
-                        ]
-                      }
-                    ]
-                  }
-      
-                ]
-              }
-            ]
-          }
+          value: draggedItem
         });
       }
     });
 
     this.drake.on('drop', (el: any, target: any, source: any) => {
       const targetComponent = this.droppableMap.get(target);
-      
+
       if (!targetComponent) { // not a target, abort
         return;
       }
 
-      let dropElmModel = draggedItem;
+      let dropElmModel = {
+        "section": [
+          {
+            "container": [
+              {
+                "row": [
+                  {
+                    "column": [
+                      draggedItem
+                    ]
+                  }
+                ]
+              }
+
+            ]
+          }
+        ]
+      };
       const dropIndex = Array.prototype.indexOf.call(target.children, el);
 
       if (dropIndex < 0) { // dropIndex is bad... cancel
@@ -204,28 +187,11 @@ export class DrakeStoreService {
         type: 'drop',
         el,
         source,
-        value: {
-          "section": [
-            {
-              "container": [
-                {
-                  "row": [
-                    {
-                      "column": [
-                        dropElmModel
-                      ]
-                    }
-                  ]
-                }
-    
-              ]
-            }
-          ]
-        },
+        value: dropElmModel,
         dropIndex
       });
-
-    });
+    }
+    );
 
     this.drake.on('remove', (el: any, container: any, source: any) => {
       if (this.droppableMap.has(source)) {
@@ -247,24 +213,7 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: {
-            "section": [
-              {
-                "container": [
-                  {
-                    "row": [
-                      {
-                        "column": [
-                         draggedItem
-                        ]
-                      }
-                    ]
-                  }
-      
-                ]
-              }
-            ]
-          }
+          value: draggedItem
         });
       }
     });
@@ -277,24 +226,7 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: {
-            "section": [
-              {
-                "container": [
-                  {
-                    "row": [
-                      {
-                        "column": [
-                         draggedItem
-                        ]
-                      }
-                    ]
-                  }
-      
-                ]
-              }
-            ]
-          }
+          value: draggedItem
         });
       }
     });
@@ -307,24 +239,7 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: {
-            "section": [
-              {
-                "container": [
-                  {
-                    "row": [
-                      {
-                        "column": [
-                          draggedItem
-                        ]
-                      }
-                    ]
-                  }
-      
-                ]
-              }
-            ]
-          }
+          value: draggedItem
         });
       }
     });
@@ -337,24 +252,7 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: {
-            "section": [
-              {
-                "container": [
-                  {
-                    "row": [
-                      {
-                        "column": [
-                          draggedItem
-                        ]
-                      }
-                    ]
-                  }
-      
-                ]
-              }
-            ]
-          }
+          value: draggedItem
         });
       }
     });

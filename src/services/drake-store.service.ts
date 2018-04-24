@@ -81,6 +81,7 @@ export class DrakeStoreService {
     let draggedItem: any;
 
     this.drake.on('drag', (el: any, source: any) => {
+      console.log("testtttt")
       draggedItem = undefined;
       dragElm = el;
 

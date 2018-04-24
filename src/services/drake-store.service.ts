@@ -81,7 +81,6 @@ export class DrakeStoreService {
     let draggedItem: any;
 
     this.drake.on('drag', (el: any, source: any) => {
-      console.log("testtttt")
       draggedItem = undefined;
       dragElm = el;
 
@@ -97,7 +96,24 @@ export class DrakeStoreService {
           type: 'drag',
           el,
           source,
-          value: draggedItem
+          value: {
+            "section": [
+              {
+                "container": [
+                  {
+                    "row": [
+                      {
+                        "column": [
+                         draggedItem
+                        ]
+                      }
+                    ]
+                  }
+      
+                ]
+              }
+            ]
+          }
         });
       }
 
@@ -110,7 +126,24 @@ export class DrakeStoreService {
           el,
           source,
           sourceComponent,
-          value: draggedItem
+          value: {
+            "section": [
+              {
+                "container": [
+                  {
+                    "row": [
+                      {
+                        "column": [
+                          draggedItem
+                        ]
+                      }
+                    ]
+                  }
+      
+                ]
+              }
+            ]
+          }
         });
       }
     });
@@ -171,7 +204,24 @@ export class DrakeStoreService {
         type: 'drop',
         el,
         source,
-        value: dropElmModel,
+        value: {
+          "section": [
+            {
+              "container": [
+                {
+                  "row": [
+                    {
+                      "column": [
+                        dropElmModel
+                      ]
+                    }
+                  ]
+                }
+    
+              ]
+            }
+          ]
+        },
         dropIndex
       });
 
@@ -197,7 +247,24 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: draggedItem
+          value: {
+            "section": [
+              {
+                "container": [
+                  {
+                    "row": [
+                      {
+                        "column": [
+                         draggedItem
+                        ]
+                      }
+                    ]
+                  }
+      
+                ]
+              }
+            ]
+          }
         });
       }
     });
@@ -210,7 +277,24 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: draggedItem
+          value: {
+            "section": [
+              {
+                "container": [
+                  {
+                    "row": [
+                      {
+                        "column": [
+                         draggedItem
+                        ]
+                      }
+                    ]
+                  }
+      
+                ]
+              }
+            ]
+          }
         });
       }
     });
@@ -223,7 +307,24 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: draggedItem
+          value: {
+            "section": [
+              {
+                "container": [
+                  {
+                    "row": [
+                      {
+                        "column": [
+                          draggedItem
+                        ]
+                      }
+                    ]
+                  }
+      
+                ]
+              }
+            ]
+          }
         });
       }
     });
@@ -236,7 +337,24 @@ export class DrakeStoreService {
           el,
           container,
           source,
-          value: draggedItem
+          value: {
+            "section": [
+              {
+                "container": [
+                  {
+                    "row": [
+                      {
+                        "column": [
+                          draggedItem
+                        ]
+                      }
+                    ]
+                  }
+      
+                ]
+              }
+            ]
+          }
         });
       }
     });

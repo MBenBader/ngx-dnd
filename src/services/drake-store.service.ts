@@ -123,25 +123,32 @@ export class DrakeStoreService {
         return;
       }
       let uuid = UUID.UUID();
-      draggedItem.id=uuid;
-      let dropElmModel = {
-        "section": [
-          {
-            "container": [
-              {
-                "row": [
-                  {
-                    "column": [
-                      draggedItem
-                    ]
-                  }
-                ]
-              }
+      draggedItem.id = uuid;
+      let dropElmModel;
+      if (targetComponent.dropZone == "multiple-target-a") {
+        dropElmModel = {
+          "section": [
+            {
+              "container": [
+                {
+                  "row": [
+                    {
+                      "column": [
+                        draggedItem
+                      ]
+                    }
+                  ]
+                }
 
-            ]
-          }
-        ]
-      };
+              ]
+            }
+          ]
+        }
+      }
+      else {
+        dropElmModel = draggedItem
+      }
+
       const dropIndex = Array.prototype.indexOf.call(target.children, el);
 
       if (dropIndex < 0) { // dropIndex is bad... cancel

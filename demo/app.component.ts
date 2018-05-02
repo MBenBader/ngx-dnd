@@ -56,7 +56,7 @@ export class AppComponent {
   targetNestedItems: any[] = [];
 
   sourceBuilderTools = [
-    { name: 'Section', children: [], inputType: 'section', icon: 'section', class: 'wide' },
+    { name: 'Section', id :'', children: [ { name: 'A String', inputType: 'string', icon: 'field-text', class: 'half' }], inputType: 'section', icon: 'section', class: 'wide' },
     { name: 'A String', inputType: 'string', icon: 'field-text', class: 'half' },
     { name: 'A Number', inputType: 'number', icon: 'field-numeric', class: 'half' }
   ];
@@ -77,5 +77,8 @@ export class AppComponent {
 
   canMove(e: any): boolean {
     return e.indexOf('Disabled') === -1;
+  }
+  add(button : any){
+    button.push({ name: 'A String', inputType: 'string', icon: 'field-text', class: 'half' })
   }
 }

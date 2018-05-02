@@ -441,30 +441,26 @@
             (remove)="log($event)">
 
             <ng-template let-model="model" let-template="template">
-              <div [ngSwitch]="model.inputType">
+              <div [ngSwitch]="model.section[0].container[0].row[0].column[0].inputType">
                 <div *ngSwitchCase="'section'">
-                   <ngx-section class="shadow" [sectionTitle]="model.name">
-                     <ngx-dnd-container
-                       dropZone="builder-target"
-                       [model]="model.children"
-                       [removeOnSpill]="true"
-                       [template]="template"
-                       [droppableItemClass]="droppableItemClass"
-                       (drag)="log($event)"
-                       (drop)="log($event)"
-                       (over)="log($event)"
-                       (out)="log($event)"
-                       (remove)="log($event)"
-                       (cancel)="log($event)">
-                     </ngx-dnd-container>
+                   <ngx-section class="shadow" [sectionTitle]="model.section[0].container[0].row[0].column[0].name">
+                    <div class="ngx-dnd-container"
+                    ngxDroppable [model]="model.section[0].container[0].row[0].column[0].children">
+                  <div class="ngx-dnd-item"
+                    ngxDraggable
+                    *ngFor="let item of model.section[0].container[0].row[0].column[0].children"
+                    [model]="item">
+                      <button class="btn btn-primary" (click)="add(model.section[0].container[0].row[0].column[0].children)">yrdyrydry</button>
+                    </div>
+                </div>
                    </ngx-section>
                 </div>
                 <div *ngSwitchDefault>
                   <ngx-input
-                    [type]="model.inputType"
-                    [hint]="model.name"
+                    [type]="model.section[0].container[0].row[0].column[0].inputType"
+                    [hint]="model.section[0].container[0].row[0].column[0].name"
                     [autofocus]="false"
-                    [ngModel]="model.data">
+                    [ngModel]="model.section[0].container[0].row[0].column[0].data">
                   </ngx-input>
                 </div>
               </div>

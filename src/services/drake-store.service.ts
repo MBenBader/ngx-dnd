@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { UUID } from 'angular2-uuid';
 import * as dragula from 'dragula';
 import { DroppableDirective } from '../directives/ngx-droppable.directive';
 import { DraggableDirective } from '../directives/ngx-draggable.directive';
@@ -114,13 +114,16 @@ export class DrakeStoreService {
       }
     });
 
+
+
     this.drake.on('drop', (el: any, target: any, source: any) => {
       const targetComponent = this.droppableMap.get(target);
 
       if (!targetComponent) { // not a target, abort
         return;
       }
-
+      let uuid = UUID.UUID();
+      draggedItem.id=uuid;
       let dropElmModel = {
         "section": [
           {

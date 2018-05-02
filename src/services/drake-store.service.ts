@@ -146,7 +146,15 @@ export class DrakeStoreService {
         }
       }
       else {
-        dropElmModel = draggedItem
+        dropElmModel = {
+          "row": [
+            {
+              "column": [
+                draggedItem
+              ]
+            }
+          ]
+        }
       }
 
       const dropIndex = Array.prototype.indexOf.call(target.children, el);

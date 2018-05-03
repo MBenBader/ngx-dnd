@@ -145,6 +145,14 @@ export class DrakeStoreService {
           ]
         }
       }
+      else if(targetComponent.dropZone == "multiple-target-c"){
+        dropElmModel = 
+            {
+              "column": [
+                draggedItem
+              ]
+            }
+      }
       else {
         dropElmModel = {
           "row": [

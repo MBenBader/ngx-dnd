@@ -129,29 +129,24 @@ export class DrakeStoreService {
         dropElmModel = {
           "section": [
             {
-              "container": [
+              "row": [
                 {
-                  "row": [
-                    {
-                      "column": [
-                        draggedItem
-                      ]
-                    }
+                  "column": [
+                    draggedItem
                   ]
                 }
-
               ]
             }
           ]
         }
       }
-      else if(targetComponent.dropZone == "multiple-target-c"){
-        dropElmModel = 
-            {
-              "column": [
-                draggedItem
-              ]
-            }
+      else if (targetComponent.dropZone == "multiple-target-c") {
+        dropElmModel =
+          {
+            "column": [
+              draggedItem
+            ]
+          }
       }
       else {
         dropElmModel = {
